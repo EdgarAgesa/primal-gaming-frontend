@@ -17,7 +17,7 @@ function Admin() {
   const [activeCategory, setActiveCategory] = useState('All')
 
   const fetchProducts = () => {
-    axios.get('http://localhost:5000/api/products')
+    axios.get('https://primal-gaming-backend.onrender.com/api/products')
       .then(res => setProducts(res.data))
   }
 
@@ -26,7 +26,7 @@ function Admin() {
   }, [loggedIn])
 
   const handleLogin = () => {
-    axios.post('http://localhost:5000/api/admin/login', { username, password })
+    axios.post('https://primal-gaming-backend.onrender.com/api/admin/login', { username, password })
       .then(res => {
         if (res.data.success) setLoggedIn(true)
         else setMessage('❌ Invalid credentials')
@@ -46,7 +46,7 @@ function Admin() {
     formData.append('category', category)
     formData.append('image', image)
 
-    axios.post('http://localhost:5000/api/products', formData)
+    axios.post('https://primal-gaming-backend.onrender.com/api/products', formData)
       .then(() => {
         setMessage('✅ Product added successfully!')
         setName('')
@@ -62,7 +62,7 @@ function Admin() {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
-      axios.delete(`http://localhost:5000/api/products/${id}`)
+      axios.delete(`https://primal-gaming-backend.onrender.com/api/products/${id}`)
         .then(() => {
           setMessage('✅ Product deleted!')
           fetchProducts()
@@ -192,7 +192,7 @@ function Admin() {
           filteredProducts.map(product => (
             <div key={product.id} style={styles.productRow}>
               <img
-                src={`http://localhost:5000/uploads/${product.image}`}
+                src={`https://primal-gaming-backend.onrender.com/uploads/${product.image}`}
                 alt={product.name}
                 style={styles.productImage}
               />

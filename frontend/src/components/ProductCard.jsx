@@ -9,7 +9,7 @@ function ProductCard({ product, addToCart }) {
   return (
     <div style={styles.card}>
       <img
-        src={`http://localhost:5000/uploads/${product.image}`}
+        src={`https://primal-gaming-backend.onrender.com/uploads/${product.image}`}
         alt={product.name}
         style={styles.image}
       />

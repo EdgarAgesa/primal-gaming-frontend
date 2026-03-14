@@ -36,7 +36,7 @@ function Home(props) {
   const [activeCategory, setActiveCategory] = useState(selectedCategory || 'All')
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
+    axios.get('https://primal-gaming-backend.onrender.com/api/products')
       .then(res => {
         setProducts(res.data)
         setLoading(false)

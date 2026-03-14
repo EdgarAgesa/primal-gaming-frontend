@@ -25,7 +25,7 @@ function Cart({ cart, removeFromCart, setCart }) {
           {cart.map(item => (
             <div key={item.id} style={styles.item}>
               <img
-                src={`http://localhost:5000/uploads/${item.image}`}
+                src={`https://primal-gaming-backend.onrender.com/uploads/${item.image}`}
                 alt={item.name}
                 style={styles.image}
               />
