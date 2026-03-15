@@ -6,9 +6,10 @@
 
 body {
   overflow-x: hidden;
-  background-color: #0a0a0f;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
+  background: #080C12;
+  font-family: 'Poppins', sans-serif;
+  color: #FFFFFF;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 ::-webkit-scrollbar {
@@ -16,16 +17,52 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #0D1520;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e94560;
+  background: #0099CC;
   border-radius: 4px;
+  box-shadow: 0 0 10px #0099CC;
+}
+
+a {
+  color: #00C8FF;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #7FFF00;
+}
+
+button {
+  background: #0099CC;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
-  opacity: 0.9;
-  transform: scale(1.02);
-  transition: all 0.2s;
+  background: #00C8FF;
+  color: #080C12;
+  transform: scale(1.03);
+}
+
+input, select, textarea {
+  background: #112236;
+  color: #fff;
+  border: 1px solid #1A3A5C;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #0099CC;
 }

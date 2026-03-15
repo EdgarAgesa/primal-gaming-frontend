@@ -2,35 +2,36 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard'
 import './Home.css'
+import laptopImg from '../assets/seth-schwiet-WB3ujiKLJwQ-unsplash.jpg'
+import controllersImg from '../assets/pexels-cottonbro-3945657.jpg'
+import ps5Img from '../assets/kerde-severin-NVD_32BBZFE-unsplash.jpg'
+
 
 const banners = [
   {
     title: 'Latest Consoles',
     subtitle: 'PlayStation 5, Xbox Series X & More',
-    bg: '#1a1a2e',
     accent: '#e94560',
-    emoji: '🕹️'
+    img: ps5Img
   },
   {
     title: 'Top Gaming PCs',
     subtitle: 'Built for Performance & Speed',
-    bg: '#0f3460',
     accent: '#ffcc00',
-    emoji: '💻'
+    img: laptopImg
   },
   {
     title: 'New Games In Stock',
     subtitle: 'Latest Titles Available Now',
-    bg: '#16213e',
     accent: '#00d4ff',
-    emoji: '🎮'
+    img: controllersImg
   }
 ]
 
 const CATEGORIES = ['All', 'Consoles', 'Games', 'PCs&laptop', 'Controllers']
 
 function Home(props) {
-  const { addToCart, selectedCategory, setSelectedCategory } = props
+  const { addToCart, selectedCategory } = props
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentBanner, setCurrentBanner] = useState(0)
@@ -52,13 +53,13 @@ function Home(props) {
     return () => clearInterval(timer)
   }, [])
 
-    useEffect(() => {
+  useEffect(() => {
     setActiveCategory(selectedCategory)
-    }, [selectedCategory])
+  }, [selectedCategory])
 
-    const filtered = activeCategory === 'All'
-        ? products
-        : products.filter(p => p.category === activeCategory)
+  const filtered = activeCategory === 'All'
+    ? products
+    : products.filter(p => p.category === activeCategory)
 
   const banner = banners[currentBanner]
 
@@ -66,17 +67,21 @@ function Home(props) {
     <div className="home-container">
 
       {/* Hero Banner */}
-      <div className="hero" style={{ backgroundColor: banner.bg }}>
+      <div
+        className="hero"
+        style={{
+          backgroundColor: '#080C12',
+          backgroundImage: `linear-gradient(rgba(8,12,18,0.45), rgba(8,12,18,0.45)), url(${banner.img})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="hero-content">
-          <span className="hero-emoji">{banner.emoji}</span>
-          <div>
-            <h1 className="hero-title" style={{ color: banner.accent }}>
-              {banner.title}
-            </h1>
+          <div className="hero-text-block">
+            <h1 className="hero-title">{banner.title}</h1>
             <p className="hero-subtitle">{banner.subtitle}</p>
-            <button className="hero-btn" style={{ backgroundColor: banner.accent }}>
-              Shop Now
-            </button>
+            <button className="hero-btn">Shop Now</button>
           </div>
         </div>
         <div className="banner-dots">
@@ -101,11 +106,7 @@ function Home(props) {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="cat-btn"
-              style={{
-                backgroundColor: activeCategory === cat ? '#e94560' : '#16213e',
-                border: activeCategory === cat ? '2px solid #e94560' : '2px solid #333',
-              }}
+              className={`cat-btn ${activeCategory === cat ? 'active' : ''}`}
             >
               {cat === 'All' && '🏪 '}
               {cat === 'Consoles' && '🕹️ '}

@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css'
+import logoImg from '../assets/PRIMAL GAMING.jpeg'
 
 function Navbar({ cartCount, onCategorySelect }) {
   const navigate = useNavigate()
@@ -13,7 +14,7 @@ function Navbar({ cartCount, onCategorySelect }) {
     <nav className="navbar">
       <div className="top-bar">
         <Link to="/" className="brand" onClick={() => onCategorySelect('All')}>
-          <span className="logo">🎮</span>
+          <img src={logoImg} alt="Primal Gaming Logo" className="navbar-logo" />
           <div>
             <span className="brand-name">PRIMAL</span>
             <span className="brand-sub"> GAMING HUB</span>
