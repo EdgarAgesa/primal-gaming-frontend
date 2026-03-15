@@ -192,7 +192,7 @@ function Admin() {
           filteredProducts.map(product => (
             <div key={product.id} style={styles.productRow}>
               <img
-                src={`https://primal-gaming-backend.onrender.com/uploads/${product.image}`}
+                src={product.image}
                 alt={product.name}
                 style={styles.productImage}
               />

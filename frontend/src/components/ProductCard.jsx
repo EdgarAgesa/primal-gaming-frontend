@@ -11,7 +11,7 @@ function ProductCard({ product, addToCart }) {
   return (
     <div className="product-card">
       <img
-        src={`https://primal-gaming-backend.onrender.com/uploads/${product.image}`}
+        src={product.image}
         alt={product.name}
         className="product-image"
       />

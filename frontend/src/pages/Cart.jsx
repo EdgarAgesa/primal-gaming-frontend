@@ -27,7 +27,7 @@ function Cart({ cart, removeFromCart, setCart }) {
           {cart.map(item => (
             <div key={item.id} className="cart-item">
               <img
-                src={`https://primal-gaming-backend.onrender.com/uploads/${item.image}`}
+                src={item.image}     
                 alt={item.name}
                 className="cart-image"
               />
