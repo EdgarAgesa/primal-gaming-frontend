@@ -81,7 +81,6 @@ function Home(props) {
           <div className="hero-text-block">
             <h1 className="hero-title">{banner.title}</h1>
             <p className="hero-subtitle">{banner.subtitle}</p>
-            <button className="hero-btn">Shop Now</button>
           </div>
         </div>
         <div className="banner-dots">
