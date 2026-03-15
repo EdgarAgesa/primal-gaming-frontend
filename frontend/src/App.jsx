@@ -3,6 +3,8 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import Admin from './pages/Admin'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import './components/Footer.css'
 import { useState } from 'react'
 import './App.css'
 
@@ -51,6 +53,7 @@ function App() {
         />
         <Route path="/admin" element={<Admin />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }
