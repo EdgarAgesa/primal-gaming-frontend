@@ -126,7 +126,10 @@ function Home(props) {
         </h2>
 
         {loading ? (
-          <p className="message">Loading products...</p>
+          <div className="loading-container">
+            <div className="loading-spinner"></div>
+            <p className="message">Loading products...</p>
+          </div>
         ) : filtered.length === 0 ? (
           <p className="message">No products in this category yet.</p>
         ) : (
